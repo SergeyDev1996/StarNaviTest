@@ -11,3 +11,9 @@ class UserSignUpSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return get_user_model().objects.create_user(**validated_data)
+
+
+class UserActivitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ("last_request", "last_login")

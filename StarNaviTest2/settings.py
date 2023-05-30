@@ -58,6 +58,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "api.user.middleware.UpdateLastRequestMiddleware"
 ]
 
 ROOT_URLCONF = "StarNaviTest2.urls"
@@ -87,7 +88,7 @@ WSGI_APPLICATION = "StarNaviTest2.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("DB_NAME", "postgres"),
+        "NAME": os.environ.get("DB_NAME", "starnavidb6"),
         "USER": os.environ.get("DB_USER", "postgres"),
         "PASSWORD": os.environ.get("DB_PASSWORD", "1962639196"),
         "HOST": os.environ.get("DB_HOST", "localhost"),
@@ -95,10 +96,11 @@ DATABASES = {
     }
 }
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),  # Adjust the expiration time as needed
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),  # Adjust the expiration time as needed
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'UPDATE_LAST_LOGIN': True
 }
-
+AUTH_USER_MODEL = "user.CustomUser"
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
