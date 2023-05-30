@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "StarNaviTest2.settings")
 django.setup()
-from api.post.models import Post, Like
+from post.models import Post, Like
 
 User = get_user_model()
 
@@ -20,7 +20,7 @@ def generate_random_string(length):
 
 
 def create_users(number_of_users):
-    """Create the specified number of users."""
+    """Create the specified number of user."""
     users = []
     for _ in range(number_of_users):
         username = generate_random_string(10)
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     max_posts_per_user = config["max_posts_per_user"]
     max_likes_per_user = config["max_likes_per_user"]
 
-    # Create users
+    # Create user
     created_users = create_users(number_of_users)
 
     # Create posts

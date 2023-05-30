@@ -1,6 +1,6 @@
 from django.utils import timezone
 
-from api.user.models import CustomUser
+from user.models import CustomUser
 
 
 class UpdateLastRequestMiddleware:
@@ -11,5 +11,6 @@ class UpdateLastRequestMiddleware:
         response = self.get_response(request)
 
         if request.user.is_authenticated:
-            CustomUser.objects.filter(id=request.user.id).update(last_request=timezone.now())
+            CustomUser.objects.filter(
+                id=request.user.id).update(last_request=timezone.now())
         return response
