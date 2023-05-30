@@ -62,16 +62,16 @@ if __name__ == "__main__":
     with open(config_file, "r") as f:
         config = json.load(f)
 
-    number_of_users = config["number_of_users"]
-    max_posts_per_user = config["max_posts_per_user"]
-    max_likes_per_user = config["max_likes_per_user"]
+    number_of_users_config = config["number_of_users"]
+    max_posts_per_user_config = config["max_posts_per_user"]
+    max_likes_per_user_config = config["max_likes_per_user"]
 
     # Create user
-    created_users = create_users(number_of_users)
+    created_users = create_users(number_of_users_config)
 
     # Create posts
-    created_posts = create_posts(created_users, max_posts_per_user)
+    created_posts = create_posts(created_users, max_posts_per_user_config)
 
     # Like posts
-    like_posts(created_users, created_posts, max_likes_per_user)
+    like_posts(created_users, created_posts, max_likes_per_user_config)
     print("The bot finished it's job.")
