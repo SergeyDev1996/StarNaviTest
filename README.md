@@ -36,11 +36,9 @@ python manage.py runserver
 
 To run the automated bot, follow these steps:
 
-1. Make sure the Django development server is running.
+1. Open a new terminal and navigate to the project directory.
 
-2. Open a new terminal and navigate to the project directory.
-
-3. Run the bot script:
+2. Run the bot script:
 ````
 python bot.py
 ````
