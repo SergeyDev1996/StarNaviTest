@@ -70,6 +70,7 @@ class AnalyticsView(APIView):
         if not date_to:
             date_to = timezone.now().date()
         # Query the database to get analytics data
+
         analytics = (
             Like.objects.filter(created_at__date__range=[date_from, date_to])
             .values("created_at__date")
